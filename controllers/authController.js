@@ -8,6 +8,19 @@ const ApiError = require("../utils/apiError");
 const sendEmail = require("../utils/sendEmail");
 const User = require("../models/userModel");
 
+export const sendEMail = async (req, res, next) => {
+  const { email } = req.body;
+  const info = await sendEmail({
+    to: email,
+    subject: "confirm email",
+    html: `
+       <h1>hi</h1>`,
+  });
+
+  console.log(info);
+  res.json({ message: "done" });
+};
+
 // @desc      Signup
 // @route     POST /api/v1/auth/signup
 // @access    Public

@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 // Path options as argument like : {email address, subject, email content and others}
 const sendEmail = async (options) => {
@@ -11,6 +11,7 @@ const sendEmail = async (options) => {
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT, //if secure is false, it uses 587, by default, and 465 if true
     secure: true,
+    service: "gmail",
     requireTLS: true,
     auth: {
       user: process.env.EMAIL_USERNAME,
@@ -20,7 +21,7 @@ const sendEmail = async (options) => {
 
   // 2) Define the email options
   const mailOptions = {
-    from: 'E-shop App <boghdady107@gmail.com>',
+    from: "E-shop App <hamadaheros96@gmail.com>",
     to: options.email,
     subject: options.subject,
     text: options.message,
